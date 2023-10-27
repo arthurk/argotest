@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: root-app
   finalizers:
-  - resources-finalizer.argocd.argoproj.io
+    - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
     server: https://kubernetes.default.svc
@@ -13,3 +13,6 @@ spec:
     path: charts/root-app/
     repoURL: https://github.com/arthurk/argotest.git
     targetRevision: HEAD
+  syncPolicy:
+    automated:
+      selfHeal: true
